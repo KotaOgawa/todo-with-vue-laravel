@@ -17,4 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/tasks', 'TaskController@index');
+Route::get('/tasks', 'TaskController@index');            // タスク一覧取得 index
+Route::get('/tasks/{task}', 'TaskController@show');      // タスク詳細取得 show
