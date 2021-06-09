@@ -14,9 +14,9 @@ class TaskController extends Controller
     }
 
     // タスクの新規登録
-    public function store(Request $request)
+    public function store(Request $request)  // TODO: ここのRequestなぞ
     {
-        return Task::create($request->all());
+        return Task::create($request->all()); // TODO: ここのall()のところなぞ
     }
 
     // タスクの詳細取得
@@ -26,9 +26,17 @@ class TaskController extends Controller
     }
 
     // タスクの更新
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Task $task) // TODO: ここもstoreのところと同様になぞ
     {
         $task->update($request->all());
+        return $task;
+    }
+
+    // タスクの削除
+    public function destroy(Task $task)
+    {
+        $task->delete();
+
         return $task;
     }
 }
