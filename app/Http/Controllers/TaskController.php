@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
@@ -10,6 +11,12 @@ class TaskController extends Controller
     public function index()
     {
         return Task::all();
+    }
+
+    // タスクの新規登録
+    public function store(Request $request)
+    {
+        return Task::create($request->all());
     }
 
     // タスクの詳細取得
